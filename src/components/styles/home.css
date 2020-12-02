@@ -1,0 +1,11 @@
+.price {
+  text-align: right;
+}
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}

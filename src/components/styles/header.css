@@ -1,0 +1,22 @@
+.navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.numberCircle {
+  width: 20px;
+  line-height: 15px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bolder;
+  border: 3px solid rgb(253, 15, 15);
+  background-color: rgb(250, 28, 28);
+  color: rgb(5, 0, 0);
+  position: fixed;
+  right: 11px;
+  top: 1px;
+}

@@ -1,11 +1,28 @@
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { CardWidget } from '../../components/shared/CardWidget';
+import { CartWidget } from '../../components/shared/CardWidget';
+import {IoMdSearch} from 'react-icons/io';
+import { useSelector, useDispatch } from 'react-redux';
+import {searchProducts} from '../../store/actions/index'
+import '../../components/styles/header.css'
 
 export function Header() {
+
+    const dispatch = useDispatch();
+    const cart = useSelector(s => s.products.cart)
+
+
+    const numberOfCartItems = () => {
+        let count = 0;
+        for(let item of cart) {
+           count += item.quantity 
+        }
+        return count
+    }
+
     return (
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="/">CARTIFY</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -19,9 +36,12 @@ export function Header() {
                     </NavDropdown>
                 </Nav>
                 <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-success">Search</Button>
-                    <CardWidget></CardWidget>
+                    <FormControl onChange={ e => dispatch(searchProducts(e.target.value))} type="text" placeholder="Search" className="mr-sm-2" />
+                    <IoMdSearch type='button' variant="outline-success">Search</IoMdSearch>
+                    <CartWidget></CartWidget> 
+                    {
+                      cart.length ? <span className='numberCircle'>{numberOfCartItems()}</span> : ''
+                    }
                 </Form>
             </Navbar.Collapse>
         </Navbar>

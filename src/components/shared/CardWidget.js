@@ -1,8 +1,8 @@
 import { Button } from 'react-bootstrap';
-import { FaBeer } from 'react-icons/fa';
+import { IoIosCart } from 'react-icons/io';;
 
-export function CardWidget() {
+export function CartWidget() {
     return (
-        <Button className="ml-3"> <FaBeer></FaBeer> Drink</Button>
+     <IoIosCart size='3em' className="ml-3"></IoIosCart>
     )
 }
