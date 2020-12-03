@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { Cart } from './components/pages/Cart';
 import { Home } from './components/pages/Home';
+import { Orders } from './components/pages/Orders'
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/">
           <Home />
+        </Route>
+        <Route path="/orders">
+          <Orders />
         </Route>
       </Switch>
 
