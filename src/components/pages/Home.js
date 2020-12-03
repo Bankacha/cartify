@@ -4,7 +4,6 @@ import { getProducts, addToCart } from '../../store/actions/index';
 import { CardColumns, Card, Row, Col, Image } from 'react-bootstrap';
 import { IoIosAddCircle } from 'react-icons/io';
 import '../styles/home.css'
-import {Cart} from './Cart'
 
 const axios = require('axios').default;
 
@@ -43,7 +42,6 @@ export function Home() {
         <div>
             <Image className='image' src="https://cartify.shopping/images/thumbs/0001392_Cartify-logo.png" fluid />
             <hr></hr>
-            <Cart></Cart>
             <CardColumns>
                 {
                     newProductList.map((p, i) => {

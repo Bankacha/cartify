@@ -1,18 +1,13 @@
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { IoMdTrash } from "react-icons/io";
-import {deleteCartItem, increase} from '../../store/actions/index'
+import { deleteCartItem, increaseQuantity, decreaseQuantity } from '../../store/actions/index'
 
 export function Cart() {
 
     const dispatch = useDispatch();
     const cart = useSelector(s => s.products.cart)
 
-    // const newCart = cart.length > 0 ? cart : [{product :'The' , name: 'cart is', quantity: 'currently', price: 'empty'}] 
-
-    const increaseCartItem = () => {
-        dispatch(increase(1))
-    }
     return (
         <div>
             <Table striped bordered hover variant="dark" className='text-center'>
@@ -28,18 +23,26 @@ export function Cart() {
                 </thead>
                 <tbody>
                     {
-                        cart.map((c, i) => {
+                        cart.length ? cart.map((c, i) => {
                             return (
                                 <tr key={i}>
-                                    <td>{i+1}</td>
+                                    <td>{i + 1}</td>
                                     <td>{c.product.product}</td>
                                     <td>{c.product.name}</td>
-                                    <td><button onClick={ ()=> increaseCartItem()}/>{c.quantity}<button/></td>
+                                    <td>
+                                        <Button onClick={() => dispatch(decreaseQuantity(c.product.id))}>-</Button>
+                                        {c.quantity}
+                                        <Button onClick={() => dispatch(increaseQuantity(c.product.id))}>+</Button>
+                                    </td>
                                     <td>{c.product.price}</td>
-                                    <td><IoMdTrash type='button' onClick={()=>dispatch(deleteCartItem(c.product.id))}/></td>
+                                    <td><IoMdTrash type='button' onClick={() => dispatch(deleteCartItem(c.product.id))} /></td>
                                 </tr>
                             )
-                        })
+                        }) : (
+                                <tr>
+                                    <td colSpan={6}>There is not products added</td>
+                                </tr>
+                            )
                     }
                 </tbody>
             </Table>

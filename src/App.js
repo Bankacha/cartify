@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { Cart } from './components/pages/Cart';
 import { Home } from './components/pages/Home';
-import { Orders } from './components/pages/Orders'
+import { Order } from './components/pages/Order'
 
 function App() {
 
@@ -20,8 +20,8 @@ function App() {
         <Route path="/">
           <Home />
         </Route>
-        <Route path="/orders">
-          <Orders />
+        <Route path="/order">
+          <Order />
         </Route>
       </Switch>
 

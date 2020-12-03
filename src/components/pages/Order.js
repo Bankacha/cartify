@@ -1,8 +1,6 @@
-import { Form } from 'react-bootstrap'
+import { Form, Button, Col } from 'react-bootstrap'
 
-export function Orders() {
-
-
+export function Order() {
     return (
         <Form>
             <Form.Row>
@@ -52,8 +50,7 @@ export function Orders() {
             </Form.Group>
 
             <Button variant="primary" type="submit">
-                Submit
-  </Button>
+                Submit</Button>
         </Form>
     )
 
