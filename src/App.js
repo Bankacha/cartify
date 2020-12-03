@@ -17,11 +17,11 @@ function App() {
         <Route path="/cart">
           <Cart />
         </Route>
-        <Route path="/">
-          <Home />
-        </Route>
         <Route path="/order">
           <Order />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
       </Switch>
 

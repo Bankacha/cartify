@@ -2,8 +2,15 @@ import { Button, Table } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { IoMdTrash } from "react-icons/io";
 import { deleteCartItem, increaseQuantity, decreaseQuantity } from '../../store/actions/index'
+import { Link } from 'react-router-dom';
 
 export function Cart() {
+
+    const radios = [
+        { name: 'Active', value: '1' },
+        { name: 'Radio', value: '2' },
+        { name: 'Radio', value: '3' },
+      ];
 
     const dispatch = useDispatch();
     const cart = useSelector(s => s.products.cart)
@@ -46,6 +53,7 @@ export function Cart() {
                     }
                 </tbody>
             </Table>
+            <Link to="/order"><Button className="w-100 btn-warning">Continue to order</Button></Link>
         </div>
     )
 }
