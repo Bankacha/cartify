@@ -20,3 +20,12 @@
   right: 11px;
   top: 1px;
 }
+
+.navSpacer {
+  margin-bottom: 80px;
+}
+
+.navCart {
+  text-decoration: none;
+  color: inherit;
+}

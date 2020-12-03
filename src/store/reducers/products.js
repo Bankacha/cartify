@@ -26,7 +26,11 @@ const productReducer = (state = initialState, action) => {
             } else {
                 return { ...state, cart: [...state.cart, action.payload] }
             }
-            
+        case 'DELETE_ITEM':
+            return { ...state, cart: [...state.cart.filter(p => p.product.id !== action.payload)]}
+        // case 'INCREASE':
+        //     return { ...state, cart: {...state.cart.map(item => {item, quantity: state.cart.quantity + action.payload})}}
+
         default:
             return state
     }

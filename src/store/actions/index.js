@@ -12,9 +12,23 @@ export const searchProducts = (input) => {
     }
 }
 
-export const  addToCart = (cartItem) => {
+export const addToCart = (cartItem) => {
     return {
         type: 'ADD_TO_CART',
         payload: cartItem
+    }
+}
+
+export const deleteCartItem = (id) => {
+    return {
+        type: 'DELETE_ITEM',
+        payload: id
+    }
+}
+
+export const increase = (num) => {
+    return {
+        type: 'INCREASE',
+        payload: num
     }
 }
